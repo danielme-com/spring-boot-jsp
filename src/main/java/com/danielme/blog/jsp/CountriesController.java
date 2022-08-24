@@ -4,16 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class CountriesController {
 
-    @RequestMapping
-    public String list(HttpServletRequest request) {
-        request.setAttribute("countriesList", buildCountriesList());
+    @RequestMapping("/")
+    public String list(Model model) {
+        model.addAttribute("countriesList", buildCountriesList());
         return "countriesList";
     }
 
